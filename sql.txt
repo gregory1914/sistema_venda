@@ -1,0 +1,9 @@
+CREATE DATABASE Sistema_vendas;
+
+CREATE TABLE Fornecedores (fornecedor_id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255)NOT NULL, cnpj VARCHAR(55) NOT NULL, endereco VARCHAR(255) NOT NULL, num_end INT NOT NULL, complemento VARCHAR(50), cep VARCHAR(9) NOT NULL, cidade VARCHAR(100) NOT NULL, estado VARCHAR(2) NOT NULL, telefone VARCHAR(20) NOT NULL, celular VARCHAR(20), data_inscricao DATE NOT NULL);
+
+CREATE TABLE Clientes (cliente_id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255) NOT NULL, cpf VARCHAR(14) NOT NULL, endereco VARCHAR(255) NOT NULL, num_end INT NOT NULL, complemento VARCHAR(50), cep VARCHAR(9) NOT NULL, cidade VARCHAR(100) NOT NULL, estado VARCHAR(2) NOT NULL, telefone VARCHAR(20) NOT NULL, celular VARCHAR(20), data_inscricao DATE NOT NULL);
+
+CREATE TABLE Produtos (produto_id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255) NOT NULL, descricao VARCHAR(255), valor DOUBLE(10,2), quant_estoque INT, fornecedor_id INT NOT NULL, data_inscricao DATE NOT NULL, FOREIGN KEY (fornecedor_id) REFERENCES Fornecedores(fornecedor_id)); 
+
+CREATE TABLE Vendas (venda_id INT AUTO_INCREMENT PRIMARY KEY, produto_id INT NOT NULL, cliente_id INT NOT NULL, valor DOUBLE(10,2) NOT NULL, data_inscricao DATE NOT NULL, FOREIGN KEY (produto_id) REFERENCES Produtos (produto_id), FOREIGN KEY (cliente_id) REFERENCES Clientes (cliente_id));
