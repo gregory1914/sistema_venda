@@ -1,5 +1,6 @@
-<?php include("php/cabecalho.php"); 
-include("usuario-logica.php");
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("usuario-logica.php");
 
 verificaUsuario();
 

@@ -1,9 +1,7 @@
-<?php include("php/cabecalho.php"); 
-include("conecta.php");
-include("banco-fornecedor.php");
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("banco-fornecedor.php");
 
-?>
-<?php
 $fornecedores = listaFornecedor($conexao);
 ?>
 <div class="container-fluid">

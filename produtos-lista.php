@@ -1,9 +1,7 @@
-<?php include("php/cabecalho.php"); 
-include("conecta.php");
-include("banco-produto.php");
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("banco-produto.php");
 
-?>
-<?php
 $produtos = listaProduto($conexao);
 ?>
 <div class="container-fluid">

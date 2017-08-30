@@ -1,4 +1,6 @@
 <?php 
+include("conecta.php");
+
 function listaProduto($conexao){
 	$produtos = array();
 	$resultado = mysqli_query($conexao, "select p.*, f.nome as fornecedores_nome from produtos as p join fornecedores as f on p.fornecedor_id = f.fornecedor_id");

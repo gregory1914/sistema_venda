@@ -1,8 +1,7 @@
-<?php include("php/cabecalho.php"); 
-include("conecta.php");
-include("banco-cliente.php");
-?>
-<?php
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("banco-cliente.php");
+
 $clientes = listaCliente($conexao);
 ?>
 <div class="container-fluid">

@@ -1,4 +1,5 @@
 <?php 
+include("conecta.php");
 
 function listaCliente($conexao){
 	$clientes = array();

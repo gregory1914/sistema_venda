@@ -1,4 +1,5 @@
 <?php 
+include("conecta.php");
 
 function listaFornecedor($conexao){
 	$fornecedores = array();

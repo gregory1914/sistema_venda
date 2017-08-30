@@ -1,7 +1,7 @@
-<?php include("php/cabecalho.php"); 
-include("conecta.php");
-include("banco-fornecedor.php");
-include("usuario-logica.php");
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("banco-fornecedor.php");
+require_once("usuario-logica.php");
 
 verificaUsuario();
 

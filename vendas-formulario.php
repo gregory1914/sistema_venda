@@ -1,8 +1,8 @@
-<?php include("php/cabecalho.php"); 
-include("conecta.php");
-include("banco-produto.php");
-include("banco-cliente.php");
-include("usuario-logica.php");
+<?php 
+require_once("php/cabecalho.php"); 
+require_once("banco-produto.php");
+require_once("banco-cliente.php");
+require_once("usuario-logica.php");
 
 verificaUsuario();
 $produtos = listaProduto($conexao);
