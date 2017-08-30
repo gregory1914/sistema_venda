@@ -2,22 +2,24 @@
 require_once("php/cabecalho.php"); 
 require_once("banco-cliente.php");
 require_once("usuario-logica.php");
+require_once("class/Cliente.php");
 
 verificaUsuario();
 
+$cliente = new Cliente();
 
-$nomeCliente = $_POST["nomeCliente"];
-$cpfCliente = $_POST["cpfCliente"];
-$telefoneCliente = $_POST["telefoneCliente"];
-$celularCliente = $_POST["celularCliente"];
-$enderecoCliente = $_POST["enderecoCliente"];
-$numeroCliente = $_POST["numeroCliente"];
-$complementoCliente = $_POST["complementoCliente"];
-$cepCliente = $_POST["cepCliente"];
-$cidadeCliente = $_POST["cidadeCliente"];
-$estadoCliente = $_POST["estadoCliente"];
+$cliente->nome = $_POST["nomeCliente"];
+$cliente->cpf = $_POST["cpfCliente"];
+$cliente->telefone = $_POST["telefoneCliente"];
+$cliente->celular = $_POST["celularCliente"];
+$cliente->endereco = $_POST["enderecoCliente"];
+$cliente->numero = $_POST["numeroCliente"];
+$cliente->complemento = $_POST["complementoCliente"];
+$cliente->cep = $_POST["cepCliente"];
+$cliente->cidade = $_POST["cidadeCliente"];
+$cliente->estado = $_POST["estadoCliente"];
 
-$inserir = insereCliente($conexao, $nomeCliente, $cpfCliente, $telefoneCliente, $celularCliente, $enderecoCliente, $numeroCliente, $complementoCliente, $cepCliente, $cidadeCliente, $estadoCliente);
+$inserir = insereCliente($conexao, $cliente);
 
 if($inserir) {
 	$_SESSION["success"] = "O Cliente <?= nomeCliente; ?> foi adicionado com sucesso!";

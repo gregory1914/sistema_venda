@@ -2,21 +2,24 @@
 require_once("php/cabecalho.php"); 
 require_once("banco-fornecedor.php");
 require_once("usuario-logica.php");
+require_once("class/Fornecedor.php");
 
 verificaUsuario();
 
-$nomeFornecedor = $_POST["nomeFornecedor"];
-$cnpjFornecedor = $_POST["cnpjFornecedor"];
-$telefoneFornecedor = $_POST["telefoneFornecedor"];
-$celularFornecedor = $_POST["celularFornecedor"];
-$enderecoFornecedor = $_POST["enderecoFornecedor"];
-$numeroFornecedor = $_POST["numeroFornecedor"];
-$complementoFornecedor = $_POST["complementoFornecedor"];
-$cepFornecedor = $_POST["cepFornecedor"];
-$cidadeFornecedor = $_POST["cidadeFornecedor"];
-$estadoFornecedor = $_POST["estadoFornecedor"];
+$fornecedor = new Fornecedor();
 
-$inserir = insereFornecedor($conexao, $nomeFornecedor, $cnpjFornecedor, $telefoneFornecedor, $celularFornecedor, $enderecoFornecedor, $numeroFornecedor, $complementoFornecedor, $cepFornecedor, $cidadeFornecedor, $estadoFornecedor);
+$fornecedor->nome = $_POST["nomeFornecedor"];
+$fornecedor->cnpj = $_POST["cnpjFornecedor"];
+$fornecedor->telefone = $_POST["telefoneFornecedor"];
+$fornecedor->celular = $_POST["celularFornecedor"];
+$fornecedor->endereco = $_POST["enderecoFornecedor"];
+$fornecedor->numero = $_POST["numeroFornecedor"];
+$fornecedor->complemento = $_POST["complementoFornecedor"];
+$fornecedor->cep = $_POST["cepFornecedor"];
+$fornecedor->cidade = $_POST["cidadeFornecedor"];
+$fornecedor->estado = $_POST["estadoFornecedor"];
+
+$inserir = insereFornecedor($conexao, $fornecedor);
 
 if($inserir) {
 	$_SESSION["success"] = "O Fornecedor <?= nomeFornecedor; ?> foi adicionado com sucesso!";

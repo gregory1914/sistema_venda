@@ -12,9 +12,9 @@ function listaProduto($conexao){
 	return $produtos;
 }
 
-function insereProduto($conexao, $nomeProduto, $descricaoProduto, $valorProduto, $quantidadeEstoque, $nomeFornecedor)
+function insereProduto($conexao, Produto $produto)
 {
-	$query = "insert into Produtos (nome, descricao, valor, quant_estoque, fornecedor_id) values ('{$nomeProduto}', '{$descricaoProduto}', {$valorProduto}, {$quantidadeEstoque}, {$nomeFornecedor})";
+	$query = "insert into Produtos (nome, descricao, valor, quant_estoque, fornecedor_id) values ('{$produto->nome}', '{$produto->descricao}', {$produto->valor}, {$produto->quantidadeEstoque}, {$produto->nomeFornecedor})";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 

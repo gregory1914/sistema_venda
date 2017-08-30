@@ -2,17 +2,19 @@
 require_once("php/cabecalho.php"); 
 require_once("banco-produto.php");
 require_once("usuario-logica.php");
+require_once("class/produto.php");
 
 verificaUsuario();
 
+$produto = new Produto();
 
-$nomeProduto = $_POST["nomeProduto"];
-$valorProduto = $_POST["valorProduto"];
-$descricaoProduto = $_POST["descricaoProduto"];
-$quantidadeEstoque = $_POST["quantidadeEstoque"];
-$nomeFornecedor = $_POST["nomeFornecedor"];
+$produto->nome = $_POST["nomeProduto"];
+$produto->valor = $_POST["valorProduto"];
+$produto->descricao = $_POST["descricaoProduto"];
+$produto->quantidadeEstoque = $_POST["quantidadeEstoque"];
+$produto->nomeFornecedor = $_POST["nomeFornecedor"];
 
-$inserir = insereProduto($conexao, $nomeProduto, $descricaoProduto, $valorProduto, $quantidadeEstoque, $nomeFornecedor);
+$inserir = insereProduto($conexao, $produto);
 
 if($inserir) {
 	$_SESSION["success"] = "O Produto <?= nomeProduto; ?> foi adicionado com sucesso!";

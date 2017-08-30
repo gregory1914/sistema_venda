@@ -12,9 +12,9 @@ function listaCliente($conexao){
 	return $clientes;
 }
 
-function insereCliente($conexao, $nomeCliente, $cnpjCliente, $telefoneCliente, $celularCliente, $enderecoCliente, $numeroCliente, $complementoCliente, $cepCliente, $cidadeCliente, $estadoCliente)
+function insereCliente($conexao, Cliente $cliente)
 {
-	$query = "insert into Clientes (nome, cpf, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$nomeCliente}', '{$cnpjCliente}', '{$enderecoCliente}', {$numeroCliente}, '{$complementoCliente}', '{$cepCliente}', '{$cidadeCliente}', '{$estadoCliente}', '{$telefoneCliente}', '{$celularCliente}', NOW())";
+	$query = "insert into Clientes (nome, cpf, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$cliente->nome}', '{$cliente->cpf}', '{$cliente->endereco}', {$cliente->numero}, '{$cliente->complemento}', '{$cliente->cep}', '{$cliente->cidade}', '{$cliente->estado}', '{$cliente->telefone}', '{$cliente->celular}', NOW())";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 

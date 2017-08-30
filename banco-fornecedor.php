@@ -12,9 +12,9 @@ function listaFornecedor($conexao){
 	return $fornecedores;
 }
 
-function insereFornecedor($conexao, $nomeFornecedor, $cnpjFornecedor, $telefoneFornecedor, $celularFornecedor, $enderecoFornecedor, $numeroFornecedor, $complementoFornecedor, $cepFornecedor, $cidadeFornecedor, $estadoFornecedor)
+function insereFornecedor($conexao, Fornecedor $fornecedor)
 {
-	$query = "insert into Fornecedores (nome, cnpj, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$nomeFornecedor}', '{$cnpjFornecedor}', '{$enderecoFornecedor}', {$numeroFornecedor}, '{$complementoFornecedor}', '{$cepFornecedor}', '{$cidadeFornecedor}', '{$estadoFornecedor}', '{$telefoneFornecedor}', '{$celularFornecedor}', NOW())";
+	$query = "insert into Fornecedores (nome, cnpj, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$fornecedor->nome}', '{$fornecedor->cnpj}', '{$fornecedor->endereco}', {$fornecedor->numero}, '{$fornecedor->complemento}', '{$fornecedor->cep}', '{$fornecedor->cidade}', '{$fornecedor->estado}', '{$fornecedor->telefone}', '{$fornecedor->celular}', NOW())";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 
