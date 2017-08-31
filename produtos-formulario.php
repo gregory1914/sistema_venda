@@ -6,9 +6,11 @@ require_once("usuario-logica.php");
 verificaUsuario();
 
 $fornecedores = listaFornecedor($conexao);
+
 ?>
 
 <div class="container">
+	
 	<h2>Cadastrar Produto</h2>
 	<form  action="produtos-adicionar.php"  method="post">
 		<div class="row">

@@ -11,10 +11,10 @@ $produto = new Produto();
 $fornecedor = new Fornecedor();
 $fornecedor->id = $_POST["nomeFornecedor"];
 
-$produto->nome = $_POST["nomeProduto"];
-$produto->valor = $_POST["valorProduto"];
-$produto->descricao = $_POST["descricaoProduto"];
-$produto->quantidadeEstoque = $_POST["quantidadeEstoque"];
+$produto->setNome($_POST["nomeProduto"]);
+$produto->setValor($_POST["valorProduto"]);
+$produto->setDescricao($_POST["descricaoProduto"]);
+$produto->setQuantidadeEstoque($_POST["quantidadeEstoque"]);
 
 
 $inserir = insereProduto($conexao, $produto);

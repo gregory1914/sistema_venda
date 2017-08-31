@@ -23,15 +23,15 @@ $produtos = listaProduto($conexao);
 		foreach($produtos as $produto) {
 			?>
 			<tr>
-				<td><?= $produto->nome ?></td>
-				<td><?= $produto->descricao ?></td>
+				<td><?= $produto->getNome() ?></td>
+				<td><?= $produto->getDescricao() ?></td>
 				<td><?= $produto->fornecedor->nome ?></td>
-				<td><?= $produto->quantidadeEstoque ?></td>
-				<td><?= $produto->valor ?></td>
-				<td><?= $produto->precoComDesconto() ?></td>
+				<td><?= $produto->getQuantidadeEstoque() ?></td>
+				<td>R$ <?= $produto->getValor() ?></td>
+				<td>R$ <?= $produto->precoComDesconto(0.20) ?></td>
 				<td>
 					<form action="produtos-deletar.php" method="post">
-						<input type="hidden" name="id" value="<?=$produto->id ?>" />
+						<input type="hidden" name="id" value="<?=$produto->getId() ?>" />
 						<button class="btn btn-danger">Remover</button>
 					</form>
 				</td>

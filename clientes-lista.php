@@ -25,14 +25,14 @@ $clientes = listaCliente($conexao);
 		foreach($clientes as $cliente) {
 			?>
 			<tr>
-				<td><?= $cliente->nome ?></td>
-				<td><?= $cliente->cidade ?></td>
-				<td><?= $cliente->estado ?></td>
-				<td><?= $cliente->telefone ?></td>
-				<td><?= $cliente->celular ?></td>
+				<td><?= $cliente->getNome() ?></td>
+				<td><?= $cliente->getCidade() ?></td>
+				<td><?= $cliente->getEstado() ?></td>
+				<td><?= $cliente->getTelefone() ?></td>
+				<td><?= $cliente->getCelular() ?></td>
 				<td>
 					<form action="clientes-deletar.php" method="post">
-            			<input type="hidden" name="id" value="<?= $cliente->id ?>" />
+            			<input type="hidden" name="id" value="<?= $cliente->getId() ?>" />
 			            <button class="btn btn-danger">Remover</button>
         			</form>
 				</td>

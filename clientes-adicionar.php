@@ -8,16 +8,16 @@ verificaUsuario();
 
 $cliente = new Cliente();
 
-$cliente->nome = $_POST["nomeCliente"];
-$cliente->cpf = $_POST["cpfCliente"];
-$cliente->telefone = $_POST["telefoneCliente"];
-$cliente->celular = $_POST["celularCliente"];
-$cliente->endereco = $_POST["enderecoCliente"];
-$cliente->numero = $_POST["numeroCliente"];
-$cliente->complemento = $_POST["complementoCliente"];
-$cliente->cep = $_POST["cepCliente"];
-$cliente->cidade = $_POST["cidadeCliente"];
-$cliente->estado = $_POST["estadoCliente"];
+$cliente->setNome($_POST["nomeCliente"]);
+$cliente->setCpf($_POST["cpfCliente"]);
+$cliente->setTelefone($_POST["telefoneCliente"]);
+$cliente->setCelular($_POST["celularCliente"]);
+$cliente->setEndereco($_POST["enderecoCliente"]);
+$cliente->setNumero($_POST["numeroCliente"]);
+$cliente->setComplemento($_POST["complementoCliente"]);
+$cliente->setCep(["cepCliente"]);
+$cliente->setCidade($_POST["cidadeCliente"]);
+$cliente->setEstado($_POST["estadoCliente"]);
 
 $inserir = insereCliente($conexao, $cliente);
 

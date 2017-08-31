@@ -10,17 +10,17 @@ function listaCliente($conexao){
 
 		$cliente = new Cliente();
 
-		$cliente->id = $cliente_array{'cliente_id'};
-		$cliente->nome = $cliente_array{'nome'};
-		$cliente->cpf = $cliente_array{'cpf'};
-		$cliente->endereco = $cliente_array{'endereco'};
-		$cliente->numero = $cliente_array{'num_end'};
-		$cliente->complemento = $cliente_array{'complemento'};
-		$cliente->cep = $cliente_array{'cep'};
-		$cliente->cidade = $cliente_array{'cidade'};
-		$cliente->estado = $cliente_array{'estado'};
-		$cliente->telefone = $cliente_array{'telefone'};
-		$cliente->celular = $cliente_array{'celular'};
+		$cliente->setId($cliente_array{'cliente_id'});
+		$cliente->setNome($cliente_array{'nome'});
+		$cliente->setCpf($cliente_array{'cpf'});
+		$cliente->setEndereco($cliente_array{'endereco'});
+		$cliente->setNumero($cliente_array{'num_end'});
+		$cliente->setComplemento($cliente_array{'complemento'});
+		$cliente->setCep($cliente_array{'cep'});
+		$cliente->setCidade($cliente_array{'cidade'});
+		$cliente->setEstado($cliente_array{'estado'});
+		$cliente->setTelefone($cliente_array{'telefone'});
+		$cliente->setCelular($cliente_array{'celular'});
 
 		array_push($clientes, $cliente);
 	}
@@ -30,7 +30,7 @@ function listaCliente($conexao){
 
 function insereCliente($conexao, Cliente $cliente)
 {
-	$query = "insert into Clientes (nome, cpf, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$cliente->nome}', '{$cliente->cpf}', '{$cliente->endereco}', {$cliente->numero}, '{$cliente->complemento}', '{$cliente->cep}', '{$cliente->cidade}', '{$cliente->estado}', '{$cliente->telefone}', '{$cliente->celular}', NOW())";
+	$query = "insert into Clientes (nome, cpf, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$cliente->getNome()}', '{$cliente->getCpf()}', '{$cliente->getEndereco()}', {$cliente->getNumero()}, '{$cliente->getComplemento()}', '{$cliente->getCep()}', '{$cliente->getCidade()}', '{$cliente->getEstado()}', '{$cliente->getTelefone()}', '{$cliente->getCelular()}', NOW())";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 
