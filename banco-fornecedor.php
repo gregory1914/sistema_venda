@@ -1,11 +1,27 @@
 <?php 
 include("conecta.php");
+require_once("class/Fornecedor.php");
 
 function listaFornecedor($conexao){
 	$fornecedores = array();
 	$resultado = mysqli_query($conexao, "select * from Fornecedores");
 
-	while($fornecedor = mysqli_fetch_assoc($resultado)){
+	while($fornecedor_array = mysqli_fetch_assoc($resultado)){
+
+		$fornecedor = new Fornecedor();
+		
+		$fornecedor->id = $fornecedor_array{'fornecedor_id'};
+		$fornecedor->nome = $fornecedor_array{'nome'};
+		$fornecedor->cnpj = $fornecedor_array{'cnpj'};
+		$fornecedor->endereco = $fornecedor_array{'endereco'};
+		$fornecedor->numumero = $fornecedor_array{'num_end'};
+		$fornecedor->complemento = $fornecedor_array{'complemento'};
+		$fornecedor->cep = $fornecedor_array{'cep'};
+		$fornecedor->cidade = $fornecedor_array{'cidade'};
+		$fornecedor->estado = $fornecedor_array{'estado'};
+		$fornecedor->telefone = $fornecedor_array{'telefone'};
+		$fornecedor->celular = $fornecedor_array{'celular'};
+
 		array_push($fornecedores, $fornecedor);
 	}
 

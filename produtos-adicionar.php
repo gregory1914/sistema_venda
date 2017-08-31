@@ -3,16 +3,19 @@ require_once("php/cabecalho.php");
 require_once("banco-produto.php");
 require_once("usuario-logica.php");
 require_once("class/produto.php");
+require_once("class/Fornecedor.php");
 
 verificaUsuario();
 
 $produto = new Produto();
+$fornecedor = new Fornecedor();
+$fornecedor->id = $_POST["nomeFornecedor"];
 
 $produto->nome = $_POST["nomeProduto"];
 $produto->valor = $_POST["valorProduto"];
 $produto->descricao = $_POST["descricaoProduto"];
 $produto->quantidadeEstoque = $_POST["quantidadeEstoque"];
-$produto->nomeFornecedor = $_POST["nomeFornecedor"];
+
 
 $inserir = insereProduto($conexao, $produto);
 

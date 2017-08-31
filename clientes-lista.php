@@ -6,11 +6,10 @@ $clientes = listaCliente($conexao);
 ?>
 <div class="container-fluid">
 
-<?php if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') { ?>
-
-	<p class="alert-success">Cliente apagado com sucesso.</p>
-
-<?php } ?>
+	<?php
+		mostraAlerta("success");
+		mostraAlerta("danger");
+	?>
 	<h2>Listagem de Clientes</h2>
 
 	<table class="table table-striped table-bordered">
@@ -26,14 +25,14 @@ $clientes = listaCliente($conexao);
 		foreach($clientes as $cliente) {
 			?>
 			<tr>
-				<td><?= $cliente['nome'] ?></td>
-				<td><?= $cliente['cidade'] ?></td>
-				<td><?= $cliente['estado'] ?></td>
-				<td><?= $cliente['telefone'] ?></td>
-				<td><?= $cliente['celular'] ?></td>
+				<td><?= $cliente->nome ?></td>
+				<td><?= $cliente->cidade ?></td>
+				<td><?= $cliente->estado ?></td>
+				<td><?= $cliente->telefone ?></td>
+				<td><?= $cliente->celular ?></td>
 				<td>
 					<form action="clientes-deletar.php" method="post">
-            			<input type="hidden" name="id" value="<?=$cliente['cliente_id']?>" />
+            			<input type="hidden" name="id" value="<?= $cliente->id ?>" />
 			            <button class="btn btn-danger">Remover</button>
         			</form>
 				</td>

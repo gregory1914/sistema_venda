@@ -12,24 +12,26 @@ $produtos = listaProduto($conexao);
 	<table class="table table-striped table-bordered">
 		<tr>
 			<th>Nome</th>
-			<th>Valor</th>
-			<th>Quantidade Estoque</th>
 			<th>Descrição</th>
 			<th>Fornecedor</th>
+			<th>Quantidade Estoque</th>
+			<th>Valor</th>
+			<th>Valor com Desconto</th>
 			<th>Opções</th>	
 		</tr>
 		<?php 
 		foreach($produtos as $produto) {
 			?>
 			<tr>
-				<td><?= $produto['nome'] ?></td>
-				<td><?= $produto['valor'] ?></td>
-				<td><?= $produto['quant_estoque'] ?></td>
-				<td><?= $produto['descricao'] ?></td>
-				<td><?= $produto['fornecedores_nome'] ?></td>
+				<td><?= $produto->nome ?></td>
+				<td><?= $produto->descricao ?></td>
+				<td><?= $produto->fornecedor->nome ?></td>
+				<td><?= $produto->quantidadeEstoque ?></td>
+				<td><?= $produto->valor ?></td>
+				<td><?= $produto->precoComDesconto() ?></td>
 				<td>
 					<form action="produtos-deletar.php" method="post">
-						<input type="hidden" name="id" value="<?=$produto['produto_id']?>" />
+						<input type="hidden" name="id" value="<?=$produto->id ?>" />
 						<button class="btn btn-danger">Remover</button>
 					</form>
 				</td>

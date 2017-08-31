@@ -1,11 +1,27 @@
 <?php 
 include("conecta.php");
+require_once("class/Cliente.php");
 
 function listaCliente($conexao){
 	$clientes = array();
 	$resultado = mysqli_query($conexao, "select * from Clientes");
 
-	while($cliente = mysqli_fetch_assoc($resultado)){
+	while($cliente_array = mysqli_fetch_assoc($resultado)){
+
+		$cliente = new Cliente();
+
+		$cliente->id = $cliente_array{'cliente_id'};
+		$cliente->nome = $cliente_array{'nome'};
+		$cliente->cpf = $cliente_array{'cpf'};
+		$cliente->endereco = $cliente_array{'endereco'};
+		$cliente->numero = $cliente_array{'num_end'};
+		$cliente->complemento = $cliente_array{'complemento'};
+		$cliente->cep = $cliente_array{'cep'};
+		$cliente->cidade = $cliente_array{'cidade'};
+		$cliente->estado = $cliente_array{'estado'};
+		$cliente->telefone = $cliente_array{'telefone'};
+		$cliente->celular = $cliente_array{'celular'};
+
 		array_push($clientes, $cliente);
 	}
 

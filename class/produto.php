@@ -7,6 +7,11 @@ class Produto {
 	public $valor;
 	public $descricao;
 	public $quantidadeEstoque;
-	public $nomeFornecedor;
+	public $fornecedor;
+
+	public function precoComDesconto(){
+		$this->valor -= $this->valor * 0.1;
+		return $this->valor;
+	}
 }
 ?>
