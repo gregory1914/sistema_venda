@@ -42,3 +42,30 @@ function removeFornecedor($conexao, $id) {
     
     return mysqli_query($conexao, $query);
 }
+
+function buscaFornecedor($conexao, $id) {
+    $query = "select * from Fornecedores where fornecedor_id = {$id}";
+    $resultado = mysqli_query($conexao, $query);
+    $fornecedor_buscado = mysqli_fetch_assoc($resultado);
+
+	$fornecedor = new Fornecedor();				
+	$fornecedor->setId($fornecedor_buscado{'fornecedor_id'});
+	$fornecedor->setNome($fornecedor_buscado{'nome'});
+	$fornecedor->setCnpj($fornecedor_buscado{'cnpj'});
+	$fornecedor->setEndereco($fornecedor_buscado{'endereco'});
+	$fornecedor->setNumero($fornecedor_buscado{'num_end'});
+	$fornecedor->setComplemento($fornecedor_buscado{'complemento'});
+	$fornecedor->setCep($fornecedor_buscado{'cep'});
+	$fornecedor->setCidade($fornecedor_buscado{'cidade'});
+	$fornecedor->setEstado($fornecedor_buscado{'estado'});
+	$fornecedor->setTelefone($fornecedor_buscado{'telefone'});
+	$fornecedor->setCelular($fornecedor_buscado{'celular'});
+
+    return $fornecedor;
+}
+
+function alteraFornecedor($conexao, $fornecedor) {
+    $query = "update Fornecedores set nome = '{$fornecedor->getNome()}', cnpj = '{$fornecedor->getCnpj()}', endereco = '{$fornecedor->getEndereco()}', num_end = {$fornecedor->getNumero()}, complemento = '{$fornecedor->getComplemento()}', cep = '{$fornecedor->getCep()}', cidade = '{$fornecedor->getCidade()}', estado = '{$fornecedor->getEstado()}', telefone = '{$fornecedor->getTelefone()}', celular = '{$fornecedor->getCelular()}' where fornecedor_id = '{$fornecedor->getId()}'";
+   
+    return mysqli_query($conexao, $query);
+}

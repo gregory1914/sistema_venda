@@ -32,7 +32,7 @@ $fornecedores = listaFornecedor($conexao);
 			</div>
 			<div class="form-group col-md-4">
 				<label for="quantidadedoestoque">Quantidade Estoque</label>
-				<input type="number" name="quantidadeEstoque" class="form-control" id="quantidadedoestoque" placeholder="Insira a quantidade do Estoque" required>
+				<input type="text" name="quantidadeEstoque" class="form-control" id="quantidadedoestoque" placeholder="Insira a quantidade do Estoque" required>
 			</div>
 		</div>
 		

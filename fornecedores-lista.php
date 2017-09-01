@@ -20,7 +20,7 @@ $fornecedores = listaFornecedor($conexao);
 			<th>UF</th>
 			<th>Telefone</th>
 			<th>Celular</th>
-			<th>Opções</th>
+			<th colspan="2">Opções</th>
 		</tr>
 		<?php 
 		foreach($fornecedores as $fornecedor) {
@@ -36,6 +36,12 @@ $fornecedores = listaFornecedor($conexao);
             			<input type="hidden" name="id" value="<?=$fornecedor->getId()?>" />
 			            <button class="btn btn-danger">Remover</button>
         			</form>
+				</td>
+				<td>					
+					<form action="fornecedores-alterar-formulario.php" method="post">
+						<input type="hidden" name="id-editar" value="<?= $fornecedor->getId() ?>" />
+						<button class="btn btn-warning">Alterar</button>
+					</form>
 				</td>
 			</tr>
 			<?php

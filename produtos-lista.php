@@ -14,10 +14,11 @@ $produtos = listaProduto($conexao);
 			<th>Nome</th>
 			<th>Descrição</th>
 			<th>Fornecedor</th>
-			<th>Quantidade Estoque</th>
+			<th>Estoque</th>
 			<th>Valor</th>
 			<th>Valor com Desconto</th>
-			<th>Opções</th>	
+			<th colspan="2">Opções</th>	
+
 		</tr>
 		<?php 
 		foreach($produtos as $produto) {
@@ -26,13 +27,19 @@ $produtos = listaProduto($conexao);
 				<td><?= $produto->getNome() ?></td>
 				<td><?= $produto->getDescricao() ?></td>
 				<td><?= $produto->fornecedor->getNome() ?></td>
-				<td><?= $produto->getQuantidadeEstoque() ?></td>
+				<td><?= $produto->getQuantidadeEstoque() ?> und.</td>
 				<td>R$ <?= $produto->getValor() ?></td>
 				<td>R$ <?= $produto->precoComDesconto(0.20) ?></td>
 				<td>
 					<form action="produtos-deletar.php" method="post">
-						<input type="hidden" name="id" value="<?=$produto->getId() ?>" />
+						<input type="hidden" name="id" value="<?= $produto->getId() ?>" />
 						<button class="btn btn-danger">Remover</button>
+					</form>
+				</td>
+				<td>					
+					<form action="produtos-alterar-formulario.php" method="post">
+						<input type="hidden" name="id-editar" value="<?= $produto->getId() ?>" />
+						<button class="btn btn-warning">Alterar</button>
 					</form>
 				</td>
 			</tr>

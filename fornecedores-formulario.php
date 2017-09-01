@@ -9,12 +9,12 @@ verificaUsuario();
 	<h2>Cadastrar Fornecedor</h2>
 	<form action="fornecedores-adicionar.php"  method="post">
 		<div class="row">
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-8">
 				<label for="nomedofornecedor">Nome</label>
 				<input type="text" name="nomeFornecedor" class="form-control" id="nomedofornecedor" placeholder="Insira o nome" required>
 			</div>
 
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-4">
 				<label for="cnpjdofornecedor">CNPJ</label>
 				<input type="text" name="cnpjFornecedor" class="form-control" id="cnpjdofornecedor" placeholder="Insira o CNPJ" required>
 			</div>
@@ -40,7 +40,7 @@ verificaUsuario();
 
 			<div class="form-group col-md-3">
 				<label for="numerodofornecedor">Nº</label>
-				<input type="number" name="numeroFornecedor" class="form-control" id="numerodofornecedor" placeholder="Insira o número" required>
+				<input type="text" name="numeroFornecedor" class="form-control" id="numerodofornecedor" placeholder="Insira o número" required>
 			</div>
 
 			<div class="form-group col-md-3">

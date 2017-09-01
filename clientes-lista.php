@@ -19,7 +19,7 @@ $clientes = listaCliente($conexao);
 			<th>UF</th>
 			<th>Telefone</th>
 			<th>Celular</th>
-			<th>Opções</th>
+			<th colspan="2">Opções</th>
 		</tr>
 		<?php 
 		foreach($clientes as $cliente) {
@@ -35,6 +35,12 @@ $clientes = listaCliente($conexao);
             			<input type="hidden" name="id" value="<?= $cliente->getId() ?>" />
 			            <button class="btn btn-danger">Remover</button>
         			</form>
+				</td>
+				<td>					
+					<form action="clientes-alterar-formulario.php" method="post">
+						<input type="hidden" name="id-editar" value="<?= $cliente->getId() ?>" />
+						<button class="btn btn-warning">Alterar</button>
+					</form>
 				</td>
 			</tr>
 			<?php

@@ -15,7 +15,7 @@ class Produto {
 	}
 
 	public function setId($id){
-		$this->id;
+		$this->id = $id;
 	}
 	
 	public function precoComDesconto($taxa){

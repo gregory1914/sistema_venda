@@ -43,3 +43,28 @@ function removeProduto($conexao, $id) {
     
     return mysqli_query($conexao, $query);
 }	
+
+function buscaProduto($conexao, $id) {
+    $query = "select * from Produtos where produto_id = {$id}";
+    $resultado = mysqli_query($conexao, $query);
+    $produto_buscado = mysqli_fetch_assoc($resultado);
+	
+	$fornecedor = new Fornecedor();
+	$fornecedor->setId($produto_buscado['fornecedor_id']);
+
+	$produto = new Produto();				
+	$produto->setId($produto_buscado{'produto_id'});
+	$produto->setNome($produto_buscado{'nome'});
+	$produto->setValor($produto_buscado{'valor'});
+	$produto->setDescricao($produto_buscado{'descricao'});
+	$produto->setQuantidadeEstoque($produto_buscado{'quant_estoque'});
+	$produto->fornecedor = $fornecedor;
+
+    return $produto;
+}
+
+function alteraProduto($conexao, $produto) {
+    $query = "update Produtos set nome = '{$produto->getNome()}', valor = {$produto->getValor()}, descricao = '{$produto->getDescricao()}', fornecedor_id= {$produto->fornecedor->getId()}, quant_estoque = {$produto->getQuantidadeEstoque()} where produto_id = '{$produto->getId()}'";
+   
+    return mysqli_query($conexao, $query);
+}

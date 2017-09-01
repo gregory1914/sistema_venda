@@ -41,7 +41,7 @@ verificaUsuario();
 
 			<div class="form-group col-md-3">
 				<label for="numerodocliente">Nº</label>
-				<input type="number" name="numeroCliente" class="form-control" id="numerodocliente" placeholder="Insira o número" required>
+				<input type="text" name="numeroCliente" class="form-control" id="numerodocliente" placeholder="Insira o número" required>
 			</div>
 
 			<div class="form-group col-md-3">
