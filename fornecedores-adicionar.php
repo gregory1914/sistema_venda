@@ -8,16 +8,16 @@ verificaUsuario();
 
 $fornecedor = new Fornecedor();
 
-$fornecedor->nome = $_POST["nomeFornecedor"];
-$fornecedor->cnpj = $_POST["cnpjFornecedor"];
-$fornecedor->telefone = $_POST["telefoneFornecedor"];
-$fornecedor->celular = $_POST["celularFornecedor"];
-$fornecedor->endereco = $_POST["enderecoFornecedor"];
-$fornecedor->numero = $_POST["numeroFornecedor"];
-$fornecedor->complemento = $_POST["complementoFornecedor"];
-$fornecedor->cep = $_POST["cepFornecedor"];
-$fornecedor->cidade = $_POST["cidadeFornecedor"];
-$fornecedor->estado = $_POST["estadoFornecedor"];
+$fornecedor->setNome($_POST["nomeFornecedor"]);
+$fornecedor->setCnpj($_POST["cnpjFornecedor"]);
+$fornecedor->setTelefone($_POST["telefoneFornecedor"]);
+$fornecedor->setCelular($_POST["celularFornecedor"]);
+$fornecedor->setEndereco($_POST["enderecoFornecedor"]);
+$fornecedor->setNumero($_POST["numeroFornecedor"]);
+$fornecedor->setComplemento($_POST["complementoFornecedor"]);
+$fornecedor->setCep($_POST["cepFornecedor"]);
+$fornecedor->setCidade($_POST["cidadeFornecedor"]);
+$fornecedor->setEstado($_POST["estadoFornecedor"]);
 
 $inserir = insereFornecedor($conexao, $fornecedor);
 

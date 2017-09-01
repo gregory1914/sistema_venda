@@ -25,7 +25,7 @@ $produtos = listaProduto($conexao);
 			<tr>
 				<td><?= $produto->getNome() ?></td>
 				<td><?= $produto->getDescricao() ?></td>
-				<td><?= $produto->fornecedor->nome ?></td>
+				<td><?= $produto->fornecedor->getNome() ?></td>
 				<td><?= $produto->getQuantidadeEstoque() ?></td>
 				<td>R$ <?= $produto->getValor() ?></td>
 				<td>R$ <?= $produto->precoComDesconto(0.20) ?></td>

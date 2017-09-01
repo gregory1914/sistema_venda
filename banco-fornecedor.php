@@ -10,17 +10,17 @@ function listaFornecedor($conexao){
 
 		$fornecedor = new Fornecedor();
 		
-		$fornecedor->id = $fornecedor_array{'fornecedor_id'};
-		$fornecedor->nome = $fornecedor_array{'nome'};
-		$fornecedor->cnpj = $fornecedor_array{'cnpj'};
-		$fornecedor->endereco = $fornecedor_array{'endereco'};
-		$fornecedor->numumero = $fornecedor_array{'num_end'};
-		$fornecedor->complemento = $fornecedor_array{'complemento'};
-		$fornecedor->cep = $fornecedor_array{'cep'};
-		$fornecedor->cidade = $fornecedor_array{'cidade'};
-		$fornecedor->estado = $fornecedor_array{'estado'};
-		$fornecedor->telefone = $fornecedor_array{'telefone'};
-		$fornecedor->celular = $fornecedor_array{'celular'};
+		$fornecedor->setId($fornecedor_array{'fornecedor_id'});
+		$fornecedor->setNome($fornecedor_array{'nome'});
+		$fornecedor->setCnpj($fornecedor_array{'cnpj'});
+		$fornecedor->setEndereco($fornecedor_array{'endereco'});
+		$fornecedor->setNumero($fornecedor_array{'num_end'});
+		$fornecedor->setComplemento($fornecedor_array{'complemento'});
+		$fornecedor->setCep($fornecedor_array{'cep'});
+		$fornecedor->setCidade($fornecedor_array{'cidade'});
+		$fornecedor->setEstado($fornecedor_array{'estado'});
+		$fornecedor->setTelefone($fornecedor_array{'telefone'});
+		$fornecedor->setCelular($fornecedor_array{'celular'});
 
 		array_push($fornecedores, $fornecedor);
 	}
@@ -30,7 +30,7 @@ function listaFornecedor($conexao){
 
 function insereFornecedor($conexao, Fornecedor $fornecedor)
 {
-	$query = "insert into Fornecedores (nome, cnpj, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$fornecedor->nome}', '{$fornecedor->cnpj}', '{$fornecedor->endereco}', {$fornecedor->numero}, '{$fornecedor->complemento}', '{$fornecedor->cep}', '{$fornecedor->cidade}', '{$fornecedor->estado}', '{$fornecedor->telefone}', '{$fornecedor->celular}', NOW())";
+	$query = "insert into Fornecedores (nome, cnpj, endereco, num_end, complemento, cep, cidade, estado, telefone, celular, data_inscricao) values ('{$fornecedor->getNome()}', '{$fornecedor->getCnpj()}', '{$fornecedor->getEndereco()}', {$fornecedor->getNumero()}, '{$fornecedor->getComplemento()}', '{$fornecedor->getCep()}', '{$fornecedor->getCidade()}', '{$fornecedor->getEstado()}', '{$fornecedor->getTelefone()}', '{$fornecedor->getCelular()}', NOW())";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 

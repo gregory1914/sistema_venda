@@ -43,7 +43,7 @@ $fornecedores = listaFornecedor($conexao);
 				<select class="form-control" id="nomeFornecedor" name="nomeFornecedor" required>
 					<option disabled selected>Selecione o Fornecedor</option>
 					<?php foreach($fornecedores as $fornecedor) : ?>
-						<option value="<?=$fornecedor->id?>"><?= $fornecedor->nome ?></option>
+						<option value="<?=$fornecedor->getId()?>"><?= $fornecedor->getNome() ?></option>
 					<?php endforeach ?>
 				</select>
 			</div>

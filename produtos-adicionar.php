@@ -9,13 +9,13 @@ verificaUsuario();
 
 $produto = new Produto();
 $fornecedor = new Fornecedor();
-$fornecedor->id = $_POST["nomeFornecedor"];
+$fornecedor->setId($_POST["nomeFornecedor"]);
 
 $produto->setNome($_POST["nomeProduto"]);
 $produto->setValor($_POST["valorProduto"]);
 $produto->setDescricao($_POST["descricaoProduto"]);
 $produto->setQuantidadeEstoque($_POST["quantidadeEstoque"]);
-
+$produto->fornecedor = $fornecedor;
 
 $inserir = insereProduto($conexao, $produto);
 

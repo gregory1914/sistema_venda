@@ -13,9 +13,9 @@ function listaProduto($conexao){
 		$produto = new Produto();
 
 		$fornecedor = new Fornecedor();
-		$fornecedor->nome = $produto_array['fornecedores_nome'];
-		$fornecedor->id = $produto_array{'fornecedor_id'};
-
+		$fornecedor->setNome($produto_array['fornecedores_nome']);
+		$fornecedor->setId($produto_array{'fornecedor_id'});
+		
 		$produto->setId($produto_array{'produto_id'});
 		$produto->setNome($produto_array{'nome'});
 		$produto->setValor($produto_array{'valor'});
@@ -31,7 +31,7 @@ function listaProduto($conexao){
 
 function insereProduto($conexao, Produto $produto)
 {
-	$query = "insert into Produtos (nome, descricao, valor, quant_estoque, fornecedor_id) values ('{$produto->getNome()}', '{$produto->getDescricao()}', {$produto->getValor()}, {$produto->getQuantidadeEstoque()}, {$produto->fornecedor->id})";
+	$query = "insert into Produtos (nome, descricao, valor, quant_estoque, fornecedor_id) values ('{$produto->getNome()}', '{$produto->getDescricao()}', {$produto->getValor()}, {$produto->getQuantidadeEstoque()}, {$produto->fornecedor->getId()})";
 
 	$resultadoDaInsersao = mysqli_query($conexao, $query);
 

@@ -26,14 +26,14 @@ $fornecedores = listaFornecedor($conexao);
 		foreach($fornecedores as $fornecedor) {
 			?>
 			<tr>
-				<td><?= $fornecedor->nome ?></td>
-				<td><?= $fornecedor->cidade ?></td>
-				<td><?= $fornecedor->estado ?></td>
-				<td><?= $fornecedor->telefone ?></td>
-				<td><?= $fornecedor->celular ?></td>
+				<td><?= $fornecedor->getNome() ?></td>
+				<td><?= $fornecedor->getCidade() ?></td>
+				<td><?= $fornecedor->getEstado() ?></td>
+				<td><?= $fornecedor->getTelefone() ?></td>
+				<td><?= $fornecedor->getCelular() ?></td>
 				<td>
 					<form action="fornecedores-deletar.php" method="post">
-            			<input type="hidden" name="id" value="<?=$fornecedor->id?>" />
+            			<input type="hidden" name="id" value="<?=$fornecedor->getId()?>" />
 			            <button class="btn btn-danger">Remover</button>
         			</form>
 				</td>

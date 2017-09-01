@@ -15,7 +15,7 @@ class Produto {
 	}
 
 	public function setId($id){
-		return $this->id;
+		$this->id;
 	}
 	
 	public function precoComDesconto($taxa){
@@ -60,5 +60,6 @@ class Produto {
 			$this->quantidadeEstoque = $quantidadeEstoque;
 		}
 	}
+
 }
 ?>

@@ -15,7 +15,7 @@ $cliente->setCelular($_POST["celularCliente"]);
 $cliente->setEndereco($_POST["enderecoCliente"]);
 $cliente->setNumero($_POST["numeroCliente"]);
 $cliente->setComplemento($_POST["complementoCliente"]);
-$cliente->setCep(["cepCliente"]);
+$cliente->setCep($_POST["cepCliente"]);
 $cliente->setCidade($_POST["cidadeCliente"]);
 $cliente->setEstado($_POST["estadoCliente"]);
 
